@@ -42,6 +42,16 @@ function generatePassword() {
       passwordCharacters += numbers;
     }
 
+  var passwordTotal = {
+    promptLength: promptLength,
+    promptLowercase: promptLowercase,
+    promptUppercase: promptUppercase,
+    promptSpecial: promptSpecial,
+    promptNumbers: promptNumbers,
+  }
+    
+  return passwordTotal;
+    
 }
 
 var randomChar = function(min, max) {
