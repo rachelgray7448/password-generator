@@ -5,7 +5,7 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@",",","^", "_", "`", "{", "|", "}", "~"];
-var passwordCharacters = "";
+var passwordCharacters = [];
 var password = "";
 
 function generatePassword() {
@@ -49,14 +49,19 @@ function generatePassword() {
     promptSpecial: promptSpecial,
     promptNumbers: promptNumbers,
   }
-    
-  return passwordTotal;
+
+  for (var i = 0; i<promptLength; i++) {
+    password += randomChar (0, passwordCharacters.length);
+  }  
+
+  return password;
     
 }
 
 var randomChar = function(min, max) {
-  var value = Math.floor(Math.random() * (max-min +1));
-  return value;
+  var randomNumber = Math.floor(Math.random() * (max-1));
+  var chosenChar = passwordCharacters[randomNumber];
+  return chosenChar;
 }
 
 
