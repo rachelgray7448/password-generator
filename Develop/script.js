@@ -21,25 +21,25 @@ function generatePassword() {
   //prompt lowercase
   var promptLowercase = window.confirm("Does your password need to include lowercase characters?");
     if (promptLowercase) {
-      passwordCharacters += lowercase ;
+      passwordCharacters = passwordCharacters.concat(lowercase) ;
     }
 
   //prompt uppercase
   var promptUppercase = window.confirm("Does your password need to include uppercase characters?");
     if (promptUppercase) {
-      passwordCharacters += uppercase;
+      passwordCharacters = passwordCharacters.concat(uppercase);
     }
 
   //prompt special char
   var promptSpecial = window.confirm("Does your password need to include special characters?");
     if (promptSpecial) {
-      passwordCharacters += special;
+      passwordCharacters = passwordCharacters.concat(special);
     }
 
   //prompt numbers
   var promptNumbers = window.confirm("Does your password need to include numbers?");
     if (promptNumbers) {
-      passwordCharacters += numbers;
+      passwordCharacters = passwordCharacters.concat(numbers);
     }
 
   var passwordTotal = {
@@ -51,7 +51,7 @@ function generatePassword() {
   }
 
   for (var i = 0; i<promptLength; i++) {
-    password += randomChar (0, passwordCharacters.length);
+    password = password.concat(randomChar(0, passwordCharacters.length));
   }  
 
   return password;
